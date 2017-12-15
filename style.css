@@ -16,6 +16,13 @@
             box-sizing: border-box;
         }
         
+        a,
+        a:visited,
+        a:hover,
+        a:active {
+            text-decoration: none;
+        }
+        
         .circle {
             position: relative;
             width: 60px;
@@ -24,6 +31,7 @@
             border-radius: 50%;
             display: flex;
             align-items: center;
+            cursor: pointer;
         }
         
         .triangles {
@@ -36,6 +44,14 @@
             border-style: solid;
             border-width: 35px 19px 0 19px;
             border-color: #ffffff transparent transparent transparent;
+        }
+        
+        .small__Triangle__Down {
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 7px 5px 0 5px;
+            border-color: #626e7f transparent transparent transparent;
         }
         
         .triangle__Up {
@@ -62,7 +78,7 @@
         .va__SideMenu {
             width: 90px;
             height: 100%;
-            background: #373f48;
+            background: #2b2b37;
             z-index: 2;
             display: flex;
             flex-direction: column;
@@ -84,11 +100,16 @@
         }
         
         .va__SideMenu__LogoBox {
-            height: 70px;
+            min-height: 70px;
             background: #ff0066;
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: .5s;
+        }
+        
+        .va__SideMenu__LogoBox:hover {
+            background: rgba(255, 0, 102, .85);
         }
         
         .va__SideMenu__Options {
@@ -99,6 +120,40 @@
         
         .va__SideMenu__Option {
             margin: auto;
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .va__SideMenu__OptionBox {
+            position: relative;
+            padding: 35px 25px;
+            right: 35px;
+        }
+        
+        .va__SideMenu__OptionIcon {
+            position: absolute;
+            height: 100%;
+            top: 0;
+            padding: 0 40px 0 20px;
+            display: flex;
+            align-items: center;
+            color: #fff;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: .15s;
+        }
+        
+        .va__SideMenu__OptionIcon:hover {
+            background: #22222f;
+            border-right: 2px solid #ff0066;
+        }
+        
+        .va__SideMenu__OptionIcon__Span {
+            margin-left: 27px;
+            display: none;
         }
         
         .va__Header__SearchBox {
@@ -171,12 +226,23 @@
             border: none;
         }
         
+        .va__Header__UserAccount {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .va__Header__UserAccount img {
+            margin: 0 15px 0 0;
+        }
+        
         .va__Body__VideoPageContent {
             background: #fff;
             width: 740px;
             margin: 75px auto 0;
             height: 740px;
             border-top: 4px solid #ff0066;
+            overflow-x: hidden;
         }
         
         .vpc__VideoBox__Video {
@@ -198,4 +264,14 @@
         
         .vpc__VideBox__Reaction {
             padding: 0 12px;
+        }
+        /*Animations*/
+        
+        @keyframes growMenu {
+            50% {
+                width: 50%;
+            }
+            100% {
+                width: 100%;
+            }
         }
