@@ -3,7 +3,10 @@ const header = document.querySelector(".va__Header");
 const contentBody = document.querySelector(".va__Body");
 const sideIcons = document.querySelectorAll(".va__SideMenu__OptionIcon");
 
-console.dir(contentBox)
+
+// HEADER SCROLL FUNCTION ==============================================
+////////////////////////////////////////////////////////////////////////
+
 contentBox.addEventListener("scroll", function(e) {
     // console.log("Scrolling", this.scrollTop)
     if (this.scrollTop > 0) {
@@ -17,12 +20,15 @@ contentBox.addEventListener("scroll", function(e) {
     }
 });
 
+
+// SIDE MENU ICONS HOVER ================================================
+/////////////////////////////////////////////////////////////////////////
+
 Array.from(sideIcons).forEach(icon => {
 
 
 
     icon.onmouseover = function() {
-        console.log(this.childNodes)
         const iconChildren = this.childNodes;
         Array.from(iconChildren)[3].setAttribute("style", "display:block;")
 
@@ -35,6 +41,18 @@ Array.from(sideIcons).forEach(icon => {
 
     }
 
+})
 
+// SIDE MENU SCROLL BUTTONS ===============================================
+///////////////////////////////////////////////////////////////////////////
 
+const arrowBtns = document.querySelectorAll('.va__SideMenu__OptionsScroll__Arrow');
+const sideIconsContainer = document.querySelector('.va__SideMenu__Options');
+
+Array.from(arrowBtns).forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        const direction = e.target.getAttribute('data-direction').trim();
+        direction === 'up' ? sideIconsContainer.style.top = '-150px' : '';
+        direction === 'down' ? sideIconsContainer.style.top = '150px' : '';
+    })
 })

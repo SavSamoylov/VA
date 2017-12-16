@@ -76,12 +76,13 @@
         }
         
         .va__SideMenu {
-            width: 90px;
+            min-width: 90px;
             height: 100%;
             background: #2b2b37;
             z-index: 2;
             display: flex;
             flex-direction: column;
+            position: relative;
         }
         
         .va__ContentBox {
@@ -106,6 +107,7 @@
             align-items: center;
             justify-content: center;
             transition: .5s;
+            z-index: 1;
         }
         
         .va__SideMenu__LogoBox:hover {
@@ -116,6 +118,7 @@
             flex-grow: 1;
             display: flex;
             flex-direction: column;
+            position: relative;
         }
         
         .va__SideMenu__Option {
@@ -154,6 +157,67 @@
         .va__SideMenu__OptionIcon__Span {
             margin-left: 27px;
             display: none;
+        }
+        
+        .va__SideMenu__OptionsScroll {
+            position: absolute;
+            width: 100%;
+            background: #13131d;
+            bottom: 0;
+            color: #fff;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            z-index: 2;
+            overflow: hidden;
+        }
+        
+        .va__SideMenu__OptionsScroll__Arrow {
+            padding: 10px 0px;
+            cursor: pointer;
+        }
+        
+        .va__SideMenu__OptionsScroll__Arrow[data-direction="up"] {
+            position: relative;
+            width: 0;
+            height: 0;
+            bottom: 5px;
+            border-style: solid;
+            border-width: 0 7px 12px 7px;
+            border-color: transparent transparent #626e7f transparent;
+        }
+        
+        .va__SideMenu__OptionsScroll__Arrow[data-direction="down"] {
+            width: 0;
+            height: 0;
+            position: relative;
+            top: 5px;
+            border-style: solid;
+            border-width: 12px 7px 0 7px;
+            border-color: #626e7f transparent transparent transparent;
+        }
+        
+        .va__SideMenu__OptionsScroll__Arrow[data-direction="up"]:hover {
+            border-color: transparent transparent #a1a1a1 transparent;
+        }
+        
+        .va__SideMenu__OptionsScroll__Arrow[data-direction="down"]:hover {
+            border-color: #a1a1a1 transparent transparent transparent;
+        }
+        
+        @media screen and (max-height:576px) {
+            .va__SideMenu__Options {
+                display: block;
+            }
+        }
+        
+        @media screen and (max-height:430px) {
+            .va__SideMenu__Options {
+                position: relative;
+            }
+            .va__SideMenu__OptionsScroll {
+                display: flex;
+            }
         }
         
         .va__Header__SearchBox {
