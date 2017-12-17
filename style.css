@@ -212,10 +212,6 @@
         }
         
         @media screen and (max-height:430px) {
-            .va__SideMenu__Options {
-                position: relative;
-            }
-            
             .va__SideMenu__OptionsScroll {
                 display: flex;
             }

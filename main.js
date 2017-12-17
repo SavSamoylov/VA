@@ -48,11 +48,39 @@ Array.from(sideIcons).forEach(icon => {
 
 const arrowBtns = document.querySelectorAll('.va__SideMenu__OptionsScroll__Arrow');
 const sideIconsContainer = document.querySelector('.va__SideMenu__Options');
+let downClicks = 0;
+console.dir(sideIconsContainer)
 
 Array.from(arrowBtns).forEach(btn => {
     btn.addEventListener('click', (e) => {
+        let topValue = sideIconsContainer.style.top;
         const direction = e.target.getAttribute('data-direction').trim();
-        direction === 'up' ? sideIconsContainer.style.top = '-150px' : '';
-        direction === 'down' ? sideIconsContainer.style.top = '150px' : '';
+
+        if (direction === 'up') {
+            if (downClicks > 0) {
+                downClicks--;
+                if (topValue === '') {
+                    sideIconsContainer.style.top = "70px"
+                } else {
+                    const oldTopValue = parseInt(topValue.split("px")[0]);
+                    sideIconsContainer.style.top = (oldTopValue + 70) + "px";
+                }
+            }
+        } else if (direction === "down") {
+            if (downClicks < 5) {
+                downClicks++;
+                if (topValue === '') {
+                    sideIconsContainer.style.top = "-70px"
+                } else {
+                    const oldTopValue = parseInt(topValue.split("px")[0]);
+                    sideIconsContainer.style.top = (oldTopValue - 70) + "px";
+                }
+            }
+        }
+
     })
+})
+
+window.addEventListener("resize", () => {
+    window.innerHeight > "431" ? sideIconsContainer.style.top = "0" : '';
 })
