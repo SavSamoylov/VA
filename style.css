@@ -212,6 +212,9 @@
         }
         
         @media screen and (max-height:430px) {
+            .va__SideMenu__Options {
+                transition: top .25s linear;
+            }
             .va__SideMenu__OptionsScroll {
                 display: flex;
             }
