@@ -137,7 +137,7 @@
             right: 35px;
         }
         
-        .va__SideMenu__OptionIcon {
+        a.va__SideMenu__OptionIcon {
             position: absolute;
             height: 100%;
             top: 0;
@@ -313,6 +313,12 @@
             height: 740px;
             border-top: 4px solid #ff0066;
             overflow-x: hidden;
+        }
+        
+        @media screen and (max-width:950px) {
+            .va__Body__VideoPageContent {
+                width: 90%;
+            }
         }
         
         .vpc__VideoBox__Video {
