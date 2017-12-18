@@ -113,12 +113,14 @@ Array.from(vaDropdowns).forEach(dd => {
 
 // Responsive Video Ratio (16:9) ==========================================
 ///////////////////////////////////////////////////////////////////////////
+window.addEventListener('load', setVideoAspectRation)
+window.addEventListener('resize', setVideoAspectRation)
 
-window.addEventListener('resize', () => {
+function setVideoAspectRation() {
     if (window.innerWidth < 950) {
         const vaVideoPageContent = document.querySelector('.va__Body__VideoPageContent');
         const vaVideoPageContentWidth = vaVideoPageContent.offsetWidth;
         const vaVideoPlayerBox = document.querySelector('.vpc__VideoBox__Video');
         vaVideoPlayerBox.style.height = (vaVideoPageContentWidth / 1.77777777) + "px";
     }
-})
+}
