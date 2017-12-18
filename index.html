@@ -157,10 +157,17 @@
                         <input type="text" placeholder="Search Videos" />
                     </div>
                     <div class="va__Header__Menu">
-                        <div class="va__Header__UserBox">
+                        <div class="va__Header__UserBox va__Dropdown" data-dropdown-parent="headerUserDD">
                             <div class="va__Header__UserAccount">
                                 <img src="./userImage.png" alt="User Avatar">
                                 <span class="small__Triangle__Down"></span>
+                            </div>
+                            <div class="va__Dropdown__Child" data-dropdown-child="headerUserDD">
+                                <ul class="va__Dropdown__List">
+                                    <li class="va__Dropdown__ListItem"><a href="#/">Account Settings</a></li>
+                                    <li class="va__Dropdown__ListItem"><a href="#/">Edit Profile</a></li>
+                                    <li class="va__Dropdown__ListItem"><a href="#/">Sign-Out</a></li>
+                                </ul>
                             </div>
                         </div>
                         <div class="va__Header__UploadBtn">

@@ -81,6 +81,32 @@ Array.from(arrowBtns).forEach(btn => {
     })
 })
 
+// Setting the SideMenu Icons back to their original size.
 window.addEventListener("resize", () => {
     window.innerHeight > "431" ? sideIconsContainer.style.top = "0" : '';
+})
+
+
+// DropDown ===============================================
+///////////////////////////////////////////////////////////////////////////
+
+const vaDropdowns = document.querySelectorAll('.va__Dropdown');
+
+Array.from(vaDropdowns).forEach(dd => {
+
+    dd.addEventListener('click', () => {
+        const ddParent = dd.getAttribute('data-dropdown-parent');
+        const ddChild = document.querySelector(`[data-dropdown-child=${ddParent}`)
+        const ddParentPositionTop = dd.offsetHeight;
+        const ddParentPositionLeft = dd.offsetLeft;
+        const dropdownOpen = ddChild.classList.contains("va__Dropdown__Child--Open");
+        if (dropdownOpen) {
+            ddChild.classList.remove("va__Dropdown__Child--Open")
+        } else {
+            ddChild.classList.add("va__Dropdown__Child--Open")
+            ddChild.style.top = (ddParentPositionTop + 5) + "px";
+            ddChild.style.right = 0 + "px";
+        }
+
+    })
 })

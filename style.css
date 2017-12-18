@@ -21,6 +21,7 @@
         a:hover,
         a:active {
             text-decoration: none;
+            color: inherit;
         }
         
         .circle {
@@ -288,6 +289,11 @@
         
         .va__Header__UserBox {
             border: none;
+            transition: .5s;
+        }
+        
+        .va__Header__UserBox:hover {
+            background: #f7f7f7;
         }
         
         .va__Header__UserAccount {
@@ -328,6 +334,35 @@
         
         .vpc__VideBox__Reaction {
             padding: 0 12px;
+        }
+        
+        .va__Dropdown {
+            position: relative;
+        }
+        
+        .va__Dropdown__Child {
+            position: absolute;
+            background: #ffffff;
+            display: none;
+            white-space: nowrap;
+        }
+        
+        .va__Dropdown__Child--Open {
+            display: block;
+        }
+        
+        .va__Dropdown__List {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .va__Dropdown__ListItem {
+            padding: 10px 15px;
+            margin: 0;
+        }
+        
+        .va__Dropdown__ListItem:hover {
+            background: #f7f7f7;
         }
         /*Animations*/
         
